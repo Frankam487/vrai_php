@@ -10,17 +10,14 @@
   
 
 
- <?php require "./conn.php";
- 
- ?>
- 
+ <?php require "./conn.php";?>
  
  <a href="./index.php">retour</a>
  <table>
           <tr>
             <th>ID</th>
             <th>Nom</th>
-            <th>Tel</th>
+            <th>Telephone</th>
             <th>Email</th>
             <th>Actions</th>
           </tr>
@@ -42,7 +39,7 @@ try {
           <td> <?=$row['email'];?> </td>
           <td>
             <a href="?delete=<?=$row['id']?>">Supprimer</a>
-            <a href="?edit">Editer</a>
+            <a href="?edit=<?=$row['id']?>">Editer</a>
         
         </td>
         </tr>
@@ -64,6 +61,8 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 } 
+
+
 ?>
 </table>
 </body>
