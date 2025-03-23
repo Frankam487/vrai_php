@@ -4,7 +4,7 @@ include "./conn.php";
 if(isset($_POST['submit'])){
     $nom = htmlspecialchars($_POST['nom']);
     $tel = htmlspecialchars($_POST['tel']);
-    $email = $_POST['email'];
+    $email = filter_var($_POST['email']);
 
     // Check if all fields are filled
     if(!empty($nom) && !empty($tel) && !empty($email)){
