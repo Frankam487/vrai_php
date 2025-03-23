@@ -47,7 +47,7 @@ td {
     border-bottom: 1px solid #ddd;
 }
 
-/* Alternance des couleurs de lignes */
+
 tr:nth-child(even) {
     background: #f9f9f9;
 }

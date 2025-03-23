@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
-/* Body Styling */
+
 body {
     display: flex;
     justify-content: center;
@@ -15,7 +15,7 @@ body {
     background: #f4f4f4;
 }
 
-/* Form Container */
+
 .form_conrtainer {
     background: #fff;
     padding: 20px;
@@ -24,21 +24,18 @@ body {
     width: 350px;
 }
 
-/* Form Styling */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Labels */
 label {
     font-weight: bold;
     margin-bottom: 5px;
     display: block;
 }
 
-/* Inputs */
 input {
     width: 100%;
     padding: 10px;
@@ -54,7 +51,7 @@ input:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Button */
+
 button {
     background: #007bff;
     color: #fff;

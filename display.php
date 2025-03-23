@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./ajouter.css">
-  <title>Document</title>
+  <title>Afficher</title>
 </head>
 <body>
   
@@ -55,15 +55,39 @@ try {
 <?php
 
 
-if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $id = (int) $_GET['delete']; //proteger l'ID
-    $sql = "DELETE FROM person WHERE id = $id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-} 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Vérifier que les données existent et sont valides
+    if (isset($_POST['id'], $_POST['nom'], $_POST['telephone'], $_POST['email'])) {
+        $id = (int) $_POST['id']; // Protéger l'ID
+        $nom = htmlspecialchars($_POST['nom']); // Assurer que le nom est sécurisé
+        $telephone = htmlspecialchars($_POST['telephone']);
+        $email = htmlspecialchars($_POST['email']);
 
+        // Préparer la requête SQL pour la mise à jour
+        $sql = "UPDATE person SET nom = :nom, telephone = :telephone, email = :email WHERE id = :id";
+        try {
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
+            $stmt->bindParam(':telephone', $telephone, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
 
+            // Exécuter la requête
+            $stmt->execute();
+
+            // Rediriger vers la page principale après la mise à jour
+            header("Location: index.php"); // Assurer que tu rediriges vers la page d'affichage des données
+            exit();
+        } catch (PDOException $e) {
+            echo "Erreur lors de la mise à jour : " . $e->getMessage();
+        }
+    }
+} else {
+    echo "Méthode incorrecte";
+}
 ?>
+ 
+
 </table>
 </body>
 </html>

@@ -6,10 +6,10 @@ if(isset($_POST['submit'])){
     $tel = htmlspecialchars($_POST['tel']);
     $email = filter_var($_POST['email']);
 
-    // Check if all fields are filled
+  
     if(!empty($nom) && !empty($tel) && !empty($email)){
         try {
-            // Prepare and execute SQL query
+    
             $sql = "INSERT INTO `person` (nom, telephone, email) VALUES (:nom, :tel, :email)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(['nom' => $nom, 'tel' => $tel, 'email' => $email]);
