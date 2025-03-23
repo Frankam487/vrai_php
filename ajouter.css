@@ -1,0 +1,80 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+a {
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    background: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+a:hover {
+    background: #0056b3;
+}
+
+
+table {
+    width: 90%;
+    max-width: 800px;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternance des couleurs de lignes */
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+
+td a {
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+td a[href*="delete"] {
+    background: #dc3545;
+    color: white;
+}
+
+td a[href*="delete"]:hover {
+    background: #a71d2a;
+}
+
+td a[href*="edit"] {
+    background: #28a745;
+    color: white;
+}
+
+td a[href*="edit"]:hover {
+    background: #1e7e34;
+}
